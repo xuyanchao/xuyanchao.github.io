@@ -244,7 +244,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<p>学习前端有些时间，今天对前段时间学习的HTML做一个系统的整理。<br>首先要说的就是</p>
-<p>#HTML的基本结构<br>HTML的基本结构很简单，如下</p>
+<h1 id="HTML的基本结构">HTML的基本结构</h1><p>HTML的基本结构很简单，如下</p>
 <pre><code><span class="tag">&lt;html&gt;</span>
 <span class="tag">&lt;head&gt;</span>
      <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
@@ -256,14 +256,13 @@
 </code></pre><p>在HTML最顶端有一个</p>
 <pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
 </code></pre><p>这是一个标准的网页声明，声明文档类型，是给浏览器识别，声明以何种文档类型解析。<br><br><em>HTML不区分大小写，对大小写不敏感，但是推荐小写，这是一个规范。</em></p>
-<p>#HTML标签及作用</p>
-<p>##基本标签<br>html为根标签，告知浏览器其自身为一个HTML文档。<br><br>head标签为文档的头部，它是所有头部元素的容器base,link, meta, script，style, 以及 title标签可以用在head部分，其中base标签为页面上的所有链接规定默认地址或默认目标，link为链接外部CSS文件的，meta标签的作用比较多，另开一片作为说明，script为链接外部JS文件或者写入JS文件的，style为内部CSS标签。</p>
-<p>##h1~h6标签<br>标题标签一共有6个，h1、h2、h3、h4、h5、h6分别为一级标题、二级标题、三级标题、四级标题、五级标题、六级标题。并且依据重要性递减。h1是最高的等级。他们都为块级标签，有默认的margin，默认加粗。</p>
-<p>##img标签<br>img标签石芳芳图片的标签，有两个属性alt和src；alt是推向的代替文本，url是所显示图像的链接，img不是会计标签，他的默认display为inline，但是它可以直接设置宽高。</p>
-<p>##q,blockquote标签<br>q标签短文本引用 比如在你的网页的文章里想引用某个作家的一句诗，这样会使你的文章更加出彩，那么你就可以使用q标签。<br>blockquote 和q标签相似，他是长文本引用。</p>
-<p>##br,hr标签<br>br 换行标签 。<br>hr 分割线标签。<br>都为单标签。</p>
-<p>##code,pre标签<br>都为引入代码的标签，但是code适合单行代码，不需要换行，如果你需要换行那就推荐你用pre标签。</p>
-<p>##列表标签<br>无序列表为ul配合li如下图</p>
+<h1 id="HTML标签及作用">HTML标签及作用</h1><h2 id="基本标签">基本标签</h2><p>html为根标签，告知浏览器其自身为一个HTML文档。<br><br>head标签为文档的头部，它是所有头部元素的容器base,link, meta, script，style, 以及 title标签可以用在head部分，其中base标签为页面上的所有链接规定默认地址或默认目标，link为链接外部CSS文件的，meta标签的作用比较多，另开一片作为说明，script为链接外部JS文件或者写入JS文件的，style为内部CSS标签。</p>
+<h2 id="h1~h6标签">h1~h6标签</h2><p>标题标签一共有6个，h1、h2、h3、h4、h5、h6分别为一级标题、二级标题、三级标题、四级标题、五级标题、六级标题。并且依据重要性递减。h1是最高的等级。他们都为块级标签，有默认的margin，默认加粗。</p>
+<h2 id="img标签">img标签</h2><p>img标签石芳芳图片的标签，有两个属性alt和src；alt是推向的代替文本，url是所显示图像的链接，img不是会计标签，他的默认display为inline，但是它可以直接设置宽高。</p>
+<h2 id="q,blockquote标签">q,blockquote标签</h2><p>q标签短文本引用 比如在你的网页的文章里想引用某个作家的一句诗，这样会使你的文章更加出彩，那么你就可以使用q标签。<br>blockquote 和q标签相似，他是长文本引用。</p>
+<h2 id="br,hr标签">br,hr标签</h2><p>br 换行标签 。<br>hr 分割线标签。<br>都为单标签。</p>
+<h2 id="code,pre标签">code,pre标签</h2><p>都为引入代码的标签，但是code适合单行代码，不需要换行，如果你需要换行那就推荐你用pre标签。</p>
+<h2 id="列表标签">列表标签</h2><p>无序列表为ul配合li如下图</p>
 <pre><code><span class="tag">&lt;ul&gt;</span>
     <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
     <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
@@ -271,7 +270,7 @@
     <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
 <span class="tag">&lt;/ul&gt;</span>
 </code></pre><p>他们是成套使用的ul标签的子标签只能为li不能添加其它标签。<br>有序列表为ol配合li，和ul相似也是成套使用，在这就不做赘述了。</p>
-<p>##表格标签<br>简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。<br>tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。<br>更复杂的 HTML 表格也可能包括 caption、thead、tfoot 以及 tbody 元素。</p>
+<h2 id="表格标签">表格标签</h2><p>简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。<br>tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。<br>更复杂的 HTML 表格也可能包括 caption、thead、tfoot 以及 tbody 元素。</p>
 <pre><code><span class="tag">&lt;<span class="title">table</span> <span class="attribute">summary</span>=<span class="value">"表格摘要"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">caption</span>&gt;</span>Name<span class="tag">&lt;/<span class="title">caption</span>&gt;</span>
         <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
@@ -289,7 +288,7 @@
             <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
         <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
-</code></pre><p>##表单元素<br>表单元素主要有form，input，textarea，label。</p>
+</code></pre><h2 id="表单元素">表单元素</h2><p>表单元素主要有form，input，textarea，label。</p>
 <pre><code>&lt;<span class="keyword">form</span> action=<span class="string">"form_action.asp"</span> method=<span class="string">"get"</span>&gt;
     &lt;<span class="keyword">label</span>&gt;First name: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"fname"</span> /&gt;&lt;/<span class="keyword">label</span>&gt;
     &lt;<span class="keyword">label</span>&gt;Last name: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"lname"</span> /&gt;&lt;/<span class="keyword">label</span>&gt;
