@@ -258,26 +258,18 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h2 id="css的引入方式">css的引入方式</h2><p>css的引入方式一般来说有三种，分别为<br></p>
-<ol>
-<li><p>外部引入样式表，这种方式最为常用，一般由link语句引入</p>
-<p> <link href="css/style.css" rel="stylesheet" type="text/css">.</p>
-</li>
-</ol>
-<p>此种方法实现了内容和样式的分离，也是最常用的方法，能很方便的复用，利于阅读和维护，但是会产生额外的请求，优先级也不高。<br></p>
-<ol>
-<li><p>在Html头部用style包起来</p>
-<p>  <style type="text/css"></p>
-<pre><code><span class="tag">div</span><span class="rules">{
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
-    }</span>
-</code></pre><p>  </style><br>适合单页面开发时候应用，不会产生额外的请求，但是不利于复用，会影响HTML的结构。<br></p>
-</li>
-<li><p>行间样式，在标签里面直接写入样式</p>
-<p>   <div style="color:red;"></div><br>这种方式优先级高，但是不利于代码维护，样式和内容没有分离，影响阅读体验。<br><br>这三种引入方式权重是从小到大依次排列的，当样式上有冲突的话会以后面的引入方式的内容显示。</p>
+      		<h2 id="css的引入方式">css的引入方式</h2><p>css的引入方式一般来说有三种，分别为<br><br>1.外部引入样式表，这种方式最为常用，一般由link语句引入</p>
+<pre><code>&lt; link href=<span class="string">"css/style.css"</span> rel=<span class="string">"stylesheet"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text/css"</span> &gt;.
+</code></pre><p>此种方法实现了内容和样式的分离，也是最常用的方法，能很方便的复用，利于阅读和维护，但是会产生额外的请求，优先级也不高。<br><br>2.在Html头部用style包起来</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+    <span class="tag">div</span><span class="rules">{
+        <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+        }</span>
+ </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>适合单页面开发时候应用，不会产生额外的请求，但是不利于复用，会影响HTML的结构。<br><br>3.行间样式，在标签里面直接写入样式</p>
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"color:red;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>这种方式优先级高，但是不利于代码维护，样式和内容没有分离，影响阅读体验。<br><br> 这三种引入方式权重是从小到大依次排列的，当样式上有冲突的话会以后面的引入方式的内容显示。</p>
 <h2 id="css选择器">css选择器</h2><p><em>在这里先只介绍css常用的选择器，css3选择器先不做介绍</em><br><br>1.类选择器(class选择器)</p>
-</li>
-</ol>
 <pre><code><span class="class">.btn</span>{
         <span class="attribute">width</span>:<span class="number">20px</span>;
     {
