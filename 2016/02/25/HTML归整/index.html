@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Category: JS | De Marcia</title>
+  <title>HTML元素归整 | De Marcia</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -242,37 +242,119 @@
 
         <!-- ============================ END Hero Image =========================== -->
       
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2015/11/27/作用域与函数/">作用域</a></h4>
-                            
-                            <p><time datetime="2015-11-27T12:34:47.000Z"><a href="/2015/11/27/作用域与函数/">2015-11-27</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-02-25T11:02:57.000Z" itemprop="datePublished">
+          2016-02-25
+      </time>
+    
+</span>
+                <h1>HTML元素归整</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>学习前端有些时间，今天对前段时间学习的HTML做一个系统的整理。<br>首先要说的就是</p>
+<h1 id="HTML的基本结构">HTML的基本结构</h1><p>HTML的基本结构很简单，如下</p>
+<pre><code><span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+     <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>水平有限，多多指教！</p>
+ <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</code></pre><p>在HTML最顶端有一个</p>
+<pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+</code></pre><p>这是一个标准的网页声明，声明文档类型，是给浏览器识别，声明以何种文档类型解析。<br><br><em>HTML不区分大小写，对大小写不敏感，但是推荐小写，这是一个规范。</em></p>
+<h1 id="HTML标签及作用">HTML标签及作用</h1><h2 id="基本标签">基本标签</h2><p>html为根标签，告知浏览器其自身为一个HTML文档。<br><br>head标签为文档的头部，它是所有头部元素的容器base,link, meta, script，style, 以及 title标签可以用在head部分，其中base标签为页面上的所有链接规定默认地址或默认目标，link为链接外部CSS文件的，meta标签的作用比较多，另开一片作为说明，script为链接外部JS文件或者写入JS文件的，style为内部CSS标签。</p>
+<h2 id="h1~h6标签">h1~h6标签</h2><p>标题标签一共有6个，h1、h2、h3、h4、h5、h6分别为一级标题、二级标题、三级标题、四级标题、五级标题、六级标题。并且依据重要性递减。h1是最高的等级。他们都为块级标签，有默认的margin，默认加粗。</p>
+<h2 id="img标签">img标签</h2><p>img标签石芳芳图片的标签，有两个属性alt和src；alt是推向的代替文本，url是所显示图像的链接，img不是会计标签，他的默认display为inline，但是它可以直接设置宽高。</p>
+<h2 id="q,blockquote标签">q,blockquote标签</h2><p>q标签短文本引用 比如在你的网页的文章里想引用某个作家的一句诗，这样会使你的文章更加出彩，那么你就可以使用q标签。<br>blockquote 和q标签相似，他是长文本引用。</p>
+<h2 id="br,hr标签">br,hr标签</h2><p>br 换行标签 。<br>hr 分割线标签。<br>都为单标签。</p>
+<h2 id="code,pre标签">code,pre标签</h2><p>都为引入代码的标签，但是code适合单行代码，不需要换行，如果你需要换行那就推荐你用pre标签。</p>
+<h2 id="列表标签">列表标签</h2><p>无序列表为ul配合li如下图</p>
+<pre><code><span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+</code></pre><p>他们是成套使用的ul标签的子标签只能为li不能添加其它标签。<br>有序列表为ol配合li，和ul相似也是成套使用，在这就不做赘述了。</p>
+<h2 id="表格标签">表格标签</h2><p>简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。<br>tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。<br>更复杂的 HTML 表格也可能包括 caption、thead、tfoot 以及 tbody 元素。</p>
+<pre><code><span class="tag">&lt;<span class="title">table</span> <span class="attribute">summary</span>=<span class="value">"表格摘要"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">caption</span>&gt;</span>Name<span class="tag">&lt;/<span class="title">caption</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+</code></pre><h2 id="表单元素">表单元素</h2><p>表单元素主要有form，input，textarea，label。</p>
+<pre><code>&lt;<span class="keyword">form</span> action=<span class="string">"form_action.asp"</span> method=<span class="string">"get"</span>&gt;
+    &lt;<span class="keyword">label</span>&gt;First name: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"fname"</span> /&gt;&lt;/<span class="keyword">label</span>&gt;
+    &lt;<span class="keyword">label</span>&gt;Last name: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"lname"</span> /&gt;&lt;/<span class="keyword">label</span>&gt;
+    &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"Submit"</span> /&gt;
+&lt;/<span class="keyword">form</span>&gt;
+</code></pre><form action="form_action.asp" method="get"><br>        <label for="First">First name: <input id="First" type="text" name="fname"></label><br>        <label for="Last">Last name: <input id="Last" type="text" name="lname"></label><br>        <input type="submit" value="Submit"><br>    </form>
+
+<p>form为创建HTML表单的元素，他可以包含input元素，textarea元素，label元素。<br><br>input 标签用于搜集信息。<br><br>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。</p>
+<p><label> 标签的 for 属性应当与相关元素的 id 属性相同。<br><br>input标签根据不同的 type 属性值，输入字段拥有很多种形式。输入字段可以是text文本字段、checkbox复选框、radio单选按钮、button按钮等等。<br><br>textarea 标签定义多行的文本输入控件去掉拖拉更改大小方法为resize:none。<br>文本区中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是 Courier）。<br>可以通过 cols 和 rows 属性来规定 textarea 的尺寸，不过更好的办法是使用 CSS 的 height 和 width 属性。<br><br>select下拉列表框，multiple属性可实现复选。opation下拉选项。<br>例子：一个简单的下拉列表</label></p>
+<pre><code><span class="tag">&lt;<span class="title">form</span>&gt;</span>
+     <span class="tag">&lt;<span class="title">select</span> <span class="attribute">name</span>=<span class="value">"cars"</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"volvo"</span>&gt;</span>Volvo<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"saab"</span>&gt;</span>Saab<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"fiat"</span>&gt;</span>Fiat<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"audi"</span>&gt;</span>Audi<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">select</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+</code></pre><form><br>         <select name="cars"><br>             <option value="volvo">Volvo</option><br>              <option value="saab">Saab</option><br>              <option value="fiat">Fiat</option><br>              <option value="audi">Audi</option><br>          </select><br>    </form>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2015/12/17/hello-world/">
+        Hello World →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="作用域" data-title="11.27学习记录" data-url="http://xuyanchao.github.io/2015/11/27/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%87%BD%E6%95%B0/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuyanchao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
