@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2015/12 | De Marcia</title>
+  <title>CSS整理 | De Marcia</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -244,37 +244,128 @@
 
         <!-- ============================ END Hero Image =========================== -->
       
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2015/12/17/hello-world/">Hello World</a></h4>
-                            
-                            <p><time datetime="2015-12-17T01:05:23.000Z"><a href="/2015/12/17/hello-world/">2015-12-17</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-02-26T03:09:14.000Z" itemprop="datePublished">
+          2016-02-26
+      </time>
+    
+</span>
+                <h1>CSS整理</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="css的引入方式">css的引入方式</h2><p>css的引入方式一般来说有三种，分别为<br></p>
+<ol>
+<li><p>外部引入样式表，这种方式最为常用，一般由link语句引入</p>
+<p> <link href="css/style.css" rel="stylesheet" type="text/css">.<br>此种方法实现了内容和样式的分离，也是最常用的方法，能很方便的复用，利于阅读和维护，但是会产生额外的请求，优先级也不高。<br></p>
+</li>
+<li><p>在Html头部用style包起来</p>
+<p> <style type="text/css"></p>
+<pre><code><span class="tag">div</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+    }</span>
+</code></pre><p> </style><br>适合单页面开发时候应用，不会产生额外的请求，但是不利于复用，会影响HTML的结构。<br></p>
+</li>
+<li><p>行间样式，在标签里面直接写入样式</p>
+<p>  <div style="color:red;"></div><br>这种方式优先级高，但是不利于代码维护，样式和内容没有分离，影响阅读体验。<br><br>这三种引入方式权重是从小到大依次排列的，当样式上有冲突的话会以后面的引入方式的内容显示。</p>
+<h2 id="css选择器">css选择器</h2><p><em>在这里先只介绍css常用的选择器，css3选择器先不做介绍</em><br><br>1.类选择器(class选择器)</p>
+<p> .btn{</p>
+<pre><code>    <span class="attribute">width</span>:<span class="number">20px</span>;
+{
+</code></pre><p>2.id选择器</p>
+<p> #btn{</p>
+<pre><code>    <span class="attribute">width</span>:<span class="number">20px</span>;
+{
+</code></pre><p>3.元素选择器</p>
+<p> p{</p>
+<pre><code><span class="string">color:</span><span class="string">red:</span>
+</code></pre><p>  {<br>4.群组选择器(偏中与代码优化)</p>
+<p> p,#btn,.btn{</p>
+<pre><code>    <span class="attribute">color</span>:black;
+}
+</code></pre><p>5.父子选择器(所有子集，包括子集的子集)</p>
+<pre><code><span class="tag">ul</span> <span class="tag">li</span>{
+        <span class="attribute">border</span>:solid;
+     {
+</code></pre><p>6.伪类选择器()</p>
+<pre><code><span class="tag">a</span><span class="pseudo">:hover</span><span class="rules">{
+        <span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;
+        }</span>
+</code></pre><p>7.伪元素选择器</p>
+<h2 id="floa及清除的方法">floa及清除的方法</h2><p>浮动在布局中会经常被使用，需要声明的是css中任何元素都可以被浮动，被浮动的元素会产生一个块级的框，无论他是何种元素，但是元素被浮动后会产生一些负面的效果(比如：撑不开父级的高度，margin设置值显示不正常)，这就要清除浮动来消除负面的效果了，清除浮动常用的有以下几种：<br><br>1.对父级设置高度<br>出现父级宽度没有被撑开或者浮动导致下面的元素于浮动元素重叠的情况就可以用这种简单的方法解决。<br><br>2.clear：both.清除浮动。<br>这种方法就是在父级结束前创建一个元素，在他的属性里面加入一个clear:both/left/right;这样就可以清楚你想要清楚地浮动元素了。如下:</p>
+<p> HTML片段<br> <div class="Fl"></div></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"left"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"right"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"clear"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p> <br>css片段</p>
+</li>
+</ol>
+<pre><code><span class="class">.left</span><span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"> solid</span></span>;
+    <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;
+}</span>
+<span class="class">.right</span><span class="rules">{
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>水平有限，多多指教！</p>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"> dashed</span></span>;
+    <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>;
+}</span>
+<span class="class">.clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+}</span>
+</code></pre><p>这样就可以清除浮动。<br><br>3.父级overflow:hidden.<br>这种方法就是在浮动元素的父级加一个overflow:hidden;值得一提的是overflow除了hidden之外还有其他的值，他们的区别为：<br></p>
+<pre><code><span class="value">visible</span>     默认值。内容不会被修剪，会呈现在元素框之外。
+<span class="value">hidden</span>         内容会被修剪，并且其余内容是不可见的。
+<span class="value">scroll</span>         内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+<span class="attribute">auto</span>         如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。
+<span class="attribute">inherit</span>     规定应该从父元素继承 <span class="attribute">overflow</span> 属性的值。
+</code></pre><h2 id="伪类">伪类</h2><p>伪类指的就是<br><br><img src="http://segmentfault.com/img/bVcccn" alt="伪类"><br>在这里需要注意的就是link,visited,hover,active。 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。a:active 必须被置于 a:hover 之后，才是有效的。所以一般的顺序为</p>
+<pre><code><span class="keyword">link</span>,visited,hover,active
+</code></pre><p>或者</p>
+<pre><code>visited,<span class="keyword">link</span>,hover,active
+</code></pre><p>为了便于记忆可以使用LoVe&amp;HAte法则！</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/02/25/HTML归整/">
+        HTML元素归整 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="作用域" data-title="11.27学习记录" data-url="http://xuyanchao.github.io/2015/11/27/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%87%BD%E6%95%B0/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuyanchao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
