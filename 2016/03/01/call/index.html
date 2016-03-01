@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2016 | De Marcia</title>
+  <title>call()和apply()方法 | De Marcia</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -244,55 +244,85 @@
 
         <!-- ============================ END Hero Image =========================== -->
       
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/03/01/call/">call()和apply()方法</a></h4>
-                            
-                            <p><time datetime="2016-03-01T11:02:26.000Z"><a href="/2016/03/01/call/">2016-03-01</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/02/26/CSS整理/">CSS整理</a></h4>
-                            
-                            <p><time datetime="2016-02-26T03:09:14.000Z"><a href="/2016/02/26/CSS整理/">2016-02-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/02/25/HTML归整/">HTML元素归整</a></h4>
-                            
-                            <p><time datetime="2016-02-25T11:02:57.000Z"><a href="/2016/02/25/HTML归整/">2016-02-25</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-03-01T11:02:26.000Z" itemprop="datePublished">
+          2016-03-01
+      </time>
+    
+</span>
+                <h1>call()和apply()方法</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>刚开始看到这两个方法的时候始终不能完全的理解，查了好多资料，看了好多文章，感觉理解了但是再次遇到的时候优惠纠结好半天才能理解，而且根本不知道有什么用，后来通过一个漫长的过程才理解，分享下个人心得。</p>
+<h2 id="call和apply存在的原因">call和apply存在的原因</h2><p>一个方法，你只有知道他为什么存在，你什么时候能用得上你才能牢记，一个你压根不知道它存在意义的东西你自然不会牢记于心，下面就举一个简单的例子：<br></p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">cat</span><span class="params">()</span></span>{
+    cat.prototype={
+        food:<span class="string">"fish"</span>,
+        say:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            alert(<span class="string">"I love"</span>+<span class="keyword">this</span>.food);
+        }
+    }
+}
+<span class="keyword">var</span> blackCat = <span class="keyword">new</span> cat;
+balckCat.say();
+</code></pre><p>这个运行结果想必大家都知道，页面会弹出“i love fish”。但是有一个对象</p>
+<pre><code>whiteDog = {<span class="string">food:</span><span class="string">"bone"</span>};
+</code></pre><p>而我又不想重新定义say方法，那我们就可以通过call或者apply方法：</p>
+<pre><code><span class="tag">blackCat</span><span class="class">.say</span><span class="class">.call</span>(<span class="tag">whiteDog</span>);
+</code></pre><p>这样页面就会弹出I love bone,这样我们既不需要重新定义say方法，又可以得到我们想要的结果。</p>
+<h2 id="call和apply的理解方法">call和apply的理解方法</h2><p>从上面的例子我们就可以看出当一个object没有某个方法，那么我们就可以通过call或者apply来利用其他对象所存在的方法来操作，whiteDog借助了say方法，说白了就是call和apply改变了this的指向，如果想理解call和apply必须对this有深入的理解，举个例子</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">chagestyle</span>(<span class="params">attr,value</span>)</span>{
+    <span class="keyword">this</span>.style[attr] = value;
+}
+<span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);
+changeStyle.call(box,<span class="string">"height"</span>,<span class="string">"200px"</span>);
+</code></pre><p>call中的第一个参数用于指定将要调用此函数的对象，在这里，changeStyle函数将被box对象调用，this指向了box对象，如果不用call的话，就成了changeStyle(“height”,”200px”),程序就会报错，因为this会指向window对象，但window对象是中没有style属性。所以说这里的box就是this的指向，call改变就是this的指向。</p>
+<h2 id="call和apply的用法与不同">call和apply的用法与不同</h2><p>在call和apply实际上我们已经交代了call和apply的应用场景，这里说下apply和call的具体用法格式和不同，其实call和apply的作用是相同的，只是接受参数的方式不太一样，以上面的例子为例，call的写法</p>
+<pre><code>changeStyle.<span class="built_in">call</span>(box,<span class="string">"height"</span>,<span class="string">"200px"</span>)<span class="comment">;</span>
+</code></pre><p>apply的写法</p>
+<pre><code>changeStyle.apply(<span class="built_in">box</span>, [<span class="string">'height'</span>, <span class="string">'200px'</span>]);
+</code></pre><p>从上面我们可以看出apply在第一个参数后面跟的必须是一个数组，两者区别就在于此。javaScript 中，某个函数的参数数量是不固定的，因此要说适用条件的话，当你的参数是明确知道数量时，用 call，而不确定的时候，用 apply，然后把参数 push 进数组传递进去。当参数数量不确定时，函数内部也可以通过 arguments 这个数组来便利所有的参数。</p>
+<h2 id="最后">最后</h2><p>这是本人学习中的个人心得，可能有理解不当的地方，也请各位指正！        </p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>水平有限，多多指教！</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/02/26/CSS整理/">
+        CSS整理 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="作用域" data-title="11.27学习记录" data-url="http://xuyanchao.github.io/2015/11/27/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%87%BD%E6%95%B0/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuyanchao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
