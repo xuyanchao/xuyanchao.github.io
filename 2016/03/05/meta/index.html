@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>call()和apply()方法 | De Marcia</title>
+  <title>meta标签作用整理 | De Marcia</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -249,58 +249,75 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-03-01T11:02:26.000Z" itemprop="datePublished">
-          2016-03-01
+      <time datetime="2016-03-05T08:31:50.000Z" itemprop="datePublished">
+          2016-03-05
       </time>
     
 </span>
-                <h1>call()和apply()方法</h1>
+                <h1>meta标签作用整理</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>刚开始看到这两个方法的时候始终不能完全的理解，查了好多资料，看了好多文章，感觉理解了但是再次遇到的时候优惠纠结好半天才能理解，而且根本不知道有什么用，后来通过一个漫长的过程才理解，分享下个人心得。</p>
-<h2 id="call和apply存在的原因">call和apply存在的原因</h2><p>一个方法，你只有知道他为什么存在，你什么时候能用得上你才能牢记，一个你压根不知道它存在意义的东西你自然不会牢记于心，下面就举一个简单的例子：<br></p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">cat</span><span class="params">()</span></span>{
-    cat.prototype={
-        food:<span class="string">"fish"</span>,
-        say:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-            alert(<span class="string">"I love"</span>+<span class="keyword">this</span>.food);
-        }
-    }
-}
-<span class="keyword">var</span> blackCat = <span class="keyword">new</span> cat;
-balckCat.say();
-</code></pre><p>这个运行结果想必大家都知道，页面会弹出“i love fish”。但是有一个对象</p>
-<pre><code>whiteDog = {<span class="string">food:</span><span class="string">"bone"</span>};
-</code></pre><p>而我又不想重新定义say方法，那我们就可以通过call或者apply方法：</p>
-<pre><code><span class="tag">blackCat</span><span class="class">.say</span><span class="class">.call</span>(<span class="tag">whiteDog</span>);
-</code></pre><p>这样页面就会弹出I love bone,这样我们既不需要重新定义say方法，又可以得到我们想要的结果。</p>
-<h2 id="call和apply的理解方法">call和apply的理解方法</h2><p>从上面的例子我们就可以看出当一个object没有某个方法，那么我们就可以通过call或者apply来利用其他对象所存在的方法来操作，whiteDog借助了say方法，说白了就是call和apply改变了this的指向，如果想理解call和apply必须对this有深入的理解，举个例子</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">chagestyle</span>(<span class="params">attr,value</span>)</span>{
-    <span class="keyword">this</span>.style[attr] = value;
-}
-<span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);
-changeStyle.call(box,<span class="string">"height"</span>,<span class="string">"200px"</span>);
-</code></pre><p>call中的第一个参数用于指定将要调用此函数的对象，在这里，changeStyle函数将被box对象调用，this指向了box对象，如果不用call的话，就成了changeStyle(“height”,”200px”),程序就会报错，因为this会指向window对象，但window对象是中没有style属性。所以说这里的box就是this的指向，call改变就是this的指向。</p>
-<h2 id="call和apply的用法与不同">call和apply的用法与不同</h2><p>在call和apply实际上我们已经交代了call和apply的应用场景，这里说下apply和call的具体用法格式和不同，其实call和apply的作用是相同的，只是接受参数的方式不太一样，以上面的例子为例，call的写法</p>
-<pre><code>changeStyle.<span class="built_in">call</span>(box,<span class="string">"height"</span>,<span class="string">"200px"</span>)<span class="comment">;</span>
-</code></pre><p>apply的写法</p>
-<pre><code>changeStyle.apply(<span class="built_in">box</span>, [<span class="string">'height'</span>, <span class="string">'200px'</span>]);
-</code></pre><p>从上面我们可以看出apply在第一个参数后面跟的必须是一个数组，两者区别就在于此。javaScript 中，某个函数的参数数量是不固定的，因此要说适用条件的话，当你的参数是明确知道数量时，用 call，而不确定的时候，用 apply，然后把参数 push 进数组传递进去。当参数数量不确定时，函数内部也可以通过 arguments 这个数组来便利所有的参数。</p>
-<h2 id="最后">最后</h2><p>这是本人学习中的个人心得，可能有理解不当的地方，也请各位指正！        </p>
+      		<p><meta> 元素可提供有关页面的元信息，标签位于文档的头部，不包含任何内容。<meta> 标签的属性定义了与文档相关联的名称/值对。meta标签通常用来为搜索引擎robots定义页面主题，或者是定义用户浏览器上的 cookie；它可以用于鉴别作者，设定页面格式，标注内容提要和关键字；还可以设置页面使其可以根据你定义的时间间隔刷新自己，以及设置RASC内容等级等。</p>
+<h2 id="1-name属性">1.name属性</h2><p>meta标签通常用来为搜索引擎robots定义页面主题，或者是定义用户浏览器上的 cookie；它可以用于鉴别作者，设定页面格式，标注内容提要和关键字；还可以设置页面使其可以根据你定义的时间间隔刷新自己，以及设置RASC内容等级等。通常格式为</p>
+<pre><code>&lt;meta <span class="property">name</span>=<span class="string">"参数"</span> content=<span class="string">"参数值"</span>&gt;
+</code></pre><p>其中name属性主要由以下几种参数：</p>
+<h4 id="A-_Keyword(关键字)">A. Keyword(关键字)</h4><p>说明：keyword用来告诉搜索引擎网页的关键字是什么。</p>
+<h4 id="B-_description(网站内容描述)">B. description(网站内容描述)</h4><p>说明：description用来告诉搜索引擎网站的主要内容。</p>
+<h4 id="C-_robots(机器人向导)">C. robots(机器人向导)</h4><p>说明：robots用来钙素搜索机器人哪些页面需要索引，哪些页面不需要索引。<br><br><b>具体参数如下:</b><br><br>信息参数为all：文件将被检索，且页面上的链接可以被查询；</p>
+<p>信息参数为none：文件将不被检索，且页面上的链接不可以被查询；</p>
+<p>信息参数为index：文件将被检索；</p>
+<p>信息参数为follow：页面上的链接可以被查询；</p>
+<p>信息参数为noindex：文件将不被检索，但页面上的链接可以被查询；</p>
+<p>信息参数为nofollow：文件将被检索，但页面上的链接不可以被查询；</p>
+<h4 id="D-author(作者)">D.author(作者)</h4><p>说明：标注网页的作者 </p>
+<h4 id="E-generator">E.generator</h4><p>meta标签的generator的信息参数，代表说明网站的采用的什么软件制作。 </p>
+<h4 id="F-COPYRIGHT">F.COPYRIGHT</h4><p>meta标签的COPYRIGHT的信息参数，代表说明网站版权信息。</p>
+<h4 id="G-revisit-after">G.revisit-after</h4><p>revisit-after代表网站重访,7days代表7天，依此类推。 </p>
+<h2 id="2-http-equiv属性">2.http-equiv属性</h2><p>http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。</p>
+<p>meta标签的http-equiv属性语法格式是： </p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"参数"</span><span class="value">content="参数变量值"</span>&gt;</span>； 
+</code></pre><p>其中http-equiv属性主要有以下几种参数：<br></p>
+<h3 id="A-Expires(期限)">A.Expires(期限)</h3><p>说明：可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。</p>
+<p>注意：必须使用GMT的时间格式。 </p>
+<h3 id="B-Pragma(cache模式)">B.Pragma(cache模式)</h3><p>说明：禁止浏览器从本地计算机的缓存中访问页面内容。</p>
+<p> 注意：这样设定，访问者将无法脱机浏览。 </p>
+<h3 id="C-Refresh(刷新)">C.Refresh(刷新)</h3><p>说明：自动刷新并指向新页面。</p>
+<p>注意：其中的2是指停留2秒钟后自动刷新到URL网址。 </p>
+<h3 id="D-Set-Cookie(cookie设定)">D.Set-Cookie(cookie设定)</h3><p>说明：如果网页过期，那么存盘的cookie将被删除。<br>注意：必须使用GMT的时间格式。 </p>
+<h3 id="E-Window-target(显示窗口的设定)">E.Window-target(显示窗口的设定)</h3><p>说明：强制页面在当前窗口以独立页面显示。 E、Window-target(显示窗口的设定)</p>
+<p>说明：强制页面在当前窗口以独立页面显示。</p>
+<h3 id="F-content-Type(显示字符集的设定)">F.content-Type(显示字符集的设定)</h3><p>说明：设定页面使用的字符集。<br><b>具体如下：</b></p>
+<p>meta标签的charset的信息参数如GB2312时，代表说明网站是采用的编码是简体中文；</p>
+<p>meta标签的charset的信息参数如BIG5时，代表说明网站是采用的编码是繁体中文；</p>
+<p>meta标签的charset的信息参数如iso-2022-jp时，代表说明网站是采用的编码是日文；</p>
+<p>meta标签的charset的信息参数如ks_c_5601时，代表说明网站是采用的编码是韩文；</p>
+<p>meta标签的charset的信息参数如ISO-8859-1时，代表说明网站是采用的编码是英文；</p>
+<p>meta标签的charset的信息参数如UTF-8时，代表世界通用的语言编码； </p>
+<h3 id="G-content-Language（显示语言的设定)">G.content-Language（显示语言的设定)</h3><p>用法：</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Language"</span><span class="value">content="zh-cn"</span>/&gt;</span> 
+</code></pre><h3 id="H-Cache-Control指定请求和响应遵循的缓存机制。">H.Cache-Control指定请求和响应遵循的缓存机制。</h3><p>Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、on</p>
+<p>ly-if-cached，响应消息中的指令包括public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age。各个消息中的指令含义如下</p>
+<p>Public指示响应可被任何缓存区缓存</p>
+<p>Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效</p>
+<p>no-cache指示请求或响应消息不能缓存</p>
+<p>no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。</p>
+<p>max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应</p>
+<p>min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应</p>
+<p>max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。 </p>
+<h3 id="J-http-equiv=”imagetoolbar”">J.http-equiv=”imagetoolbar”</h3><pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"imagetoolbar"</span><span class="value">content="false"</span>/&gt;</span> 
+</code></pre><p>指定是否显示图片工具栏，当为false代表不显示，当为true代表显示。</p>
+<h3 id="K-Content-Script-Type">K.Content-Script-Type</h3><pre><code><span class="tag">&lt;<span class="title">Meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Script-Type"</span><span class="value">Content="text</span>/<span class="attribute">javascript</span>"&gt;</span> 
+</code></pre><p>W3C网页规范，指明页面中脚本的类型。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/03/01/this/" style="float: left;">
-        ← this的深入浅出
-    </a>
     
-    
-    <a class="pull-right" href="/2016/02/26/CSS整理/">
-        CSS整理 →
+    <a class="pull-right" href="/2016/03/01/this/">
+        this的深入浅出 →
     </a>
     
 </nav>
